@@ -10,7 +10,6 @@ SystemJS.config({
       "build.js": [
         "app/app.js",
         "app/App.vue",
-        "app/Child.vue",
         "npm:systemjs-plugin-vue@1.2.0.json",
         "npm:vue@2.0.0-alpha.5/dist/vue.common.js",
         "npm:vue@2.0.0-alpha.5.json",

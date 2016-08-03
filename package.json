@@ -10,7 +10,9 @@
   "devDependencies": {
     "concurrently": "^2.1.0",
     "jspm": "^0.17.0-beta.22",
-    "lite-server": "^2.2.0"
+    "lite-server": "^2.2.0",
+    "pug": "^2.0.0-beta4",
+    "stylus": "^0.54.5"
   },
   "jspm": {
     "name": "app",
