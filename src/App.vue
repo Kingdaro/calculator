@@ -69,12 +69,6 @@ for $span in 1..4 {
   }
 }
 
-// flexstuff
-.flex-center {
-  display: flex
-
-}
-
 // reset to make everything size in a non-stupid way
 * { box-sizing: border-box }
 
