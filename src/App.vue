@@ -38,7 +38,7 @@ $grid-cell-width = 2.5em
 $grid-cell-height = 2.7em
 $grid-spacing = 2px
 
-grid-calc($cell-span, $cell-length) {
+grid-length($cell-span, $cell-length) {
   $length = $cell-span * unit($cell-length, rem)
   $extra = ($cell-span - 1) * $grid-spacing
   return 'calc(%s + %s)' % ($length $extra)
@@ -55,7 +55,7 @@ grid-calc($cell-span, $cell-length) {
 
 for $span in 1..4 {
   .col-{$span} {
-    width: grid-calc($span, $grid-cell-width)
+    width: grid-length($span, $grid-cell-width)
 
     &:not(:last-child) {
       margin-right: $grid-spacing
@@ -65,7 +65,7 @@ for $span in 1..4 {
 
 for $span in 1..4 {
   .rowspan-{$span} {
-    height: grid-calc($span, $grid-cell-height)
+    height: grid-length($span, $grid-cell-height)
   }
 }
 
