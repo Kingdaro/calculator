@@ -4,10 +4,10 @@
     .row
       .result.col-4(v-html="result")
     .row
-      .button-operator.col-1(@click="addOperator('plus')") +
-      .button-operator.col-1(@click="addOperator('minus')") -
-      .button-operator.col-1(@click="addOperator('times')") &times;
-      .button-operator.col-1(@click="addOperator('divide')") &divide;
+      operator.col-1(which='plus')
+      operator.col-1(which='minus')
+      operator.col-1(which='times')
+      operator.col-1(which='divide')
     .row
       .button-numeric.col-1(@click="addNumber('7')") 7
       .button-numeric.col-1(@click="addNumber('8')") 8
@@ -29,9 +29,12 @@
 </template>
 
 <script>
+import Operator from './Operator.vue'
 import {store, state} from './store'
 
 export default {
+  components: {Operator},
+
   data () {
     return {
       state

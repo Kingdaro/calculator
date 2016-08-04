@@ -14,6 +14,7 @@ SystemJS.config({
         "npm:systemjs-plugin-babel@0.0.12/babel-helpers/createClass.js",
         "npm:systemjs-plugin-babel@0.0.12.json",
         "npm:systemjs-plugin-babel@0.0.12/babel-helpers/classCallCheck.js",
+        "app/Operator.vue",
         "npm:systemjs-plugin-vue@1.2.0.json",
         "npm:vue@2.0.0-alpha.5/dist/vue.common.js",
         "npm:vue@2.0.0-alpha.5.json",

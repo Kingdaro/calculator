@@ -42,22 +42,25 @@ class Store {
     this.state.operands = []
   }
 
+  getOperatorSymbol (which) {
+    switch (which) {
+      case 'plus': return '+'
+      case 'minus': return '-'
+      case 'times': return '&times;'
+      case 'divide': return '&divide;'
+    }
+  }
+
   get result () {
     if (this.state.operands.length > 0) {
-      return this.state.operands.map(op => {
-        switch (op.type) {
-          case 'number':
-            return op.value
-
-          case 'operator':
-            switch (op.which) {
-              case 'plus': return '+'
-              case 'minus': return '-'
-              case 'times': return '&times;'
-              case 'divide': return '&divide;'
-            }
-        }
-      }).join(' ')
+      return this.state.operands
+        .map(op => {
+          switch (op.type) {
+            case 'number': return op.value
+            case 'operator': return this.getOperatorSymbol(op.which)
+          }
+        })
+        .join(' ')
     } else {
       return '0'
     }
