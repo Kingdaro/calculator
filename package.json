@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "concurrently \"jspm bundle src/app.js -wid\" \"lite-server\"",
     "build": "jspm build src/app.js --minify",
-    "postinstall": "jspm install"
+    "postinstall": "jspm install",
+    "test": "mocha --compilers js:babel-register test"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.9.0",
