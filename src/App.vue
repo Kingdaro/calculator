@@ -9,22 +9,22 @@
       operator.col-1(which='times')
       operator.col-1(which='divide')
     .row
-      number.col-1(number='7')
-      number.col-1(number='8')
-      number.col-1(number='9')
       special.col-1.rowspan-2(@click.native="clear") C
+      number.col-1(v-bind:number='7')
+      number.col-1(v-bind:number='8')
+      number.col-1(v-bind:number='9')
     .row
-      number.col-1(number='4')
-      number.col-1(number='5')
-      number.col-1(number='6')
+      number.col-1(v-bind:number='4')
+      number.col-1(v-bind:number='5')
+      number.col-1(v-bind:number='6')
     .row
-      number.col-1(number='1')
-      number.col-1(number='2')
-      number.col-1(number='3')
+      number.col-1(v-bind:number='1')
+      number.col-1(v-bind:number='2')
+      number.col-1(v-bind:number='3')
       special.col-1.rowspan-2 &equals;
     .row
       special.col-1 &plusmn;
-      number.col-1(number='0')
+      number.col-1(v-bind:number='0')
       special.col-1 &period;
 </template>
 
@@ -44,14 +44,6 @@ export default {
   },
 
   methods: {
-    addNumber (value) {
-      store.addNumber(value)
-    },
-
-    addOperator (which) {
-      store.addOperator(which)
-    },
-
     clear () {
       store.clear()
     }

@@ -19,10 +19,9 @@ export class Store {
   }
 
   addNumber (value) {
-    value = value.toString()
     const last = this.getLastOperand()
     if (last && last.type === 'number') {
-      last.value += value
+      last.value = parseInt(last.value.toString() + value.toString())
     } else {
       this.addOperand('number', { value })
     }

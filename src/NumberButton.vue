@@ -7,7 +7,7 @@ import {store} from './store'
 
 export default {
   props: {
-    number: String
+    number: Number
   },
 
   methods: {

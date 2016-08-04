@@ -9,16 +9,16 @@ describe('store', () => {
 
   describe('addNumber', () => {
     it('adds a new operand if there are no operands', () => {
-      store.addNumber('5')
+      store.addNumber(5)
       store.state.operands[0].type.should.equal('number')
-      store.state.operands[0].value.should.equal('5')
+      store.state.operands[0].value.should.equal(5)
     })
 
     it('appends to the last number when necessary', () => {
-      store.addNumber('4')
-      store.addNumber('2')
+      store.addNumber(4)
+      store.addNumber(2)
       store.state.operands[0].type.should.equal('number')
-      store.state.operands[0].value.should.equal('42')
+      store.state.operands[0].value.should.equal(42)
     })
   })
 
