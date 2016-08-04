@@ -29,57 +29,32 @@
 </template>
 
 <script>
+import {store, state} from './store'
+
 export default {
   data () {
     return {
-      operands: []
+      state
     }
   },
 
   methods: {
     addNumber (value) {
-      const prev = this.operands[this.operands.length - 1]
-      if (prev && prev.type === 'number') {
-        prev.value += value
-      } else {
-        this.operands.push({ type: 'number', value })
-      }
+      store.addNumber(value)
     },
 
     addOperator (which) {
-      const prev = this.operands[this.operands.length - 1]
-      if (prev && prev.type === 'operator') {
-        prev.which = which
-      } else {
-        this.operands.push({ type: 'operator', which })
-      }
+      store.addOperator(which)
     },
 
     clear () {
-      this.operands = []
+      store.clear()
     }
   },
 
   computed: {
     result () {
-      if (this.operands.length > 0) {
-        return this.operands.map(op => {
-          switch (op.type) {
-            case 'number':
-              return op.value
-
-            case 'operator':
-              switch (op.which) {
-                case 'plus': return '+'
-                case 'minus': return '-'
-                case 'times': return '&times;'
-                case 'divide': return '&divide;'
-              }
-          }
-        }).join(' ')
-      } else {
-        return '0'
-      }
+      return store.result
     }
   }
 }

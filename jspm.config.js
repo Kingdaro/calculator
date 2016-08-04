@@ -10,6 +10,10 @@ SystemJS.config({
       "build.js": [
         "app/app.js",
         "app/App.vue",
+        "app/store.js",
+        "npm:systemjs-plugin-babel@0.0.12/babel-helpers/createClass.js",
+        "npm:systemjs-plugin-babel@0.0.12.json",
+        "npm:systemjs-plugin-babel@0.0.12/babel-helpers/classCallCheck.js",
         "npm:systemjs-plugin-vue@1.2.0.json",
         "npm:vue@2.0.0-alpha.5/dist/vue.common.js",
         "npm:vue@2.0.0-alpha.5.json",
