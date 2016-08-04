@@ -19,6 +19,7 @@ export class Store {
   }
 
   addNumber (value) {
+    value = value.toString()
     const last = this.getLastOperand()
     if (last && last.type === 'number') {
       last.value += value

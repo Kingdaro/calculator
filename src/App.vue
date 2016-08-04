@@ -9,31 +9,33 @@
       operator.col-1(which='times')
       operator.col-1(which='divide')
     .row
-      .button-numeric.col-1(@click="addNumber('7')") 7
-      .button-numeric.col-1(@click="addNumber('8')") 8
-      .button-numeric.col-1(@click="addNumber('9')") 9
-      .button-special.col-1.rowspan-2(@click="clear") C
+      number.col-1(number='7')
+      number.col-1(number='8')
+      number.col-1(number='9')
+      special.col-1.rowspan-2(@click.native="clear") C
     .row
-      .button-numeric.col-1(@click="addNumber('4')") 4
-      .button-numeric.col-1(@click="addNumber('5')") 5
-      .button-numeric.col-1(@click="addNumber('6')") 6
+      number.col-1(number='4')
+      number.col-1(number='5')
+      number.col-1(number='6')
     .row
-      .button-numeric.col-1(@click="addNumber('1')") 1
-      .button-numeric.col-1(@click="addNumber('2')") 2
-      .button-numeric.col-1(@click="addNumber('3')") 3
-      .button-special.col-1.rowspan-2 &equals;
+      number.col-1(number='1')
+      number.col-1(number='2')
+      number.col-1(number='3')
+      special.col-1.rowspan-2 &equals;
     .row
-      .button-special.col-1 &plusmn;
-      .button-numeric.col-1(@click="addNumber('0')") 0
-      .button-special.col-1 &period;
+      special.col-1 &plusmn;
+      number.col-1(number='0')
+      special.col-1 &period;
 </template>
 
 <script>
-import Operator from './Operator.vue'
+import Operator from './OperatorButton.vue'
+import Number from './NumberButton.vue'
+import Special from './SpecialButton.vue'
 import {store, state} from './store'
 
 export default {
-  components: {Operator},
+  components: {Operator, Number, Special},
 
   data () {
     return {
