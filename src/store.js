@@ -18,7 +18,7 @@ export class Store {
     this.state.operands = []
   }
 
-  addNumber (value) {
+  addNumberOperand (value) {
     const last = this.getLastOperand()
     if (last && last.type === 'number') {
       last.value = parseInt(last.value.toString() + value.toString())
@@ -27,7 +27,7 @@ export class Store {
     }
   }
 
-  addOperator (which) {
+  addSymbolOperand (which) {
     const last = this.getLastOperand()
     if (last) {
       if (last.type === 'operator') {

@@ -1,5 +1,5 @@
 <template lang='pug'>
-.button-operator(v-html='symbol', @click='addOperator')
+.button-operator(v-html='symbol', @click='addSymbolOperand')
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
   },
 
   methods: {
-    addOperator () { store.addOperator(this.which) }
+    addSymbolOperand () { store.addSymbolOperand(this.which) }
   },
 
   computed: {

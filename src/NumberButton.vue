@@ -12,7 +12,7 @@ export default {
 
   methods: {
     click () {
-      store.addNumber(this.number)
+      store.addNumberOperand(this.number)
     }
   }
 }
