@@ -1,5 +1,6 @@
 <template lang='pug'>
-.button-operator(v-html='symbol', @click='addSymbolOperand')
+.button-operator(@click='addSymbolOperand')
+  slot
 </template>
 
 <script>
@@ -12,12 +13,6 @@ export default {
 
   methods: {
     addSymbolOperand () { store.addSymbolOperand(this.which) }
-  },
-
-  computed: {
-    symbol () {
-      return store.getOperatorSymbol(this.which)
-    }
   }
 }
 </script>

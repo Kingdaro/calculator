@@ -5,14 +5,19 @@
       .result.col-4(v-html="result")
     .row
       operator.col-1(which='plus')
+        i.mdi.mdi-plus
       operator.col-1(which='minus')
+        i.mdi.mdi-minus
       operator.col-1(which='times')
+        i.mdi.mdi-close
       operator.col-1(which='divide')
+        i.mdi.mdi-division
     .row
       number.col-1(v-bind:number='7')
       number.col-1(v-bind:number='8')
       number.col-1(v-bind:number='9')
-      special.col-1(@click="backspace") &lt;-
+      special.col-1(@click="backspace")
+        i.mdi.mdi-backspace
     .row
       number.col-1(v-bind:number='4')
       number.col-1(v-bind:number='5')
@@ -22,7 +27,8 @@
       number.col-1(v-bind:number='1')
       number.col-1(v-bind:number='2')
       number.col-1(v-bind:number='3')
-      special.col-1.rowspan-2 &equals;
+      special.col-1.rowspan-2
+        i.mdi.mdi-equal
     .row
       special.col-1 &plusmn;
       number.col-1(v-bind:number='0')
