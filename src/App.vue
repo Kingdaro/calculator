@@ -2,34 +2,87 @@
 .container
   .calculator
     .row
-      .result.col-4 0
+      .result.col-4(v-html="result")
     .row
-      .button-operator.col-1 +
-      .button-operator.col-1 -
-      .button-operator.col-1 *
-      .button-operator.col-1 /
+      .button-operator.col-1(@click="addOperator('plus')") +
+      .button-operator.col-1(@click="addOperator('minus')") -
+      .button-operator.col-1(@click="addOperator('times')") &times;
+      .button-operator.col-1(@click="addOperator('divide')") &divide;
     .row
-      .button-numeric.col-1 7
-      .button-numeric.col-1 8
-      .button-numeric.col-1 9
-      .button-special.col-1.rowspan-2 C
+      .button-numeric.col-1(@click="addNumber('7')") 7
+      .button-numeric.col-1(@click="addNumber('8')") 8
+      .button-numeric.col-1(@click="addNumber('9')") 9
+      .button-special.col-1.rowspan-2(@click="clear") C
     .row
-      .button-numeric.col-1 4
-      .button-numeric.col-1 5
-      .button-numeric.col-1 6
+      .button-numeric.col-1(@click="addNumber('4')") 4
+      .button-numeric.col-1(@click="addNumber('5')") 5
+      .button-numeric.col-1(@click="addNumber('6')") 6
     .row
-      .button-numeric.col-1 1
-      .button-numeric.col-1 2
-      .button-numeric.col-1 3
+      .button-numeric.col-1(@click="addNumber('1')") 1
+      .button-numeric.col-1(@click="addNumber('2')") 2
+      .button-numeric.col-1(@click="addNumber('3')") 3
       .button-special.col-1.rowspan-2 &equals;
     .row
       .button-special.col-1 &plusmn;
-      .button-numeric.col-1 0
+      .button-numeric.col-1(@click="addNumber('0')") 0
       .button-special.col-1 &period;
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      operands: []
+    }
+  },
+
+  methods: {
+    addNumber (value) {
+      const prev = this.operands[this.operands.length - 1]
+      if (prev && prev.type === 'number') {
+        prev.value += value
+      } else {
+        this.operands.push({ type: 'number', value })
+      }
+    },
+
+    addOperator (which) {
+      const prev = this.operands[this.operands.length - 1]
+      if (prev && prev.type === 'operator') {
+        prev.which = which
+      } else {
+        this.operands.push({ type: 'operator', which })
+      }
+    },
+
+    clear () {
+      this.operands = []
+    }
+  },
+
+  computed: {
+    result () {
+      if (this.operands.length > 0) {
+        return this.operands.map(op => {
+          switch (op.type) {
+            case 'number':
+              return op.value
+
+            case 'operator':
+              switch (op.which) {
+                case 'plus': return '+'
+                case 'minus': return '-'
+                case 'times': return '&times;'
+                case 'divide': return '&divide;'
+              }
+          }
+        }).join(' ')
+      } else {
+        return '0'
+      }
+    }
+  }
+}
 </script>
 
 <style lang="stylus">
@@ -109,10 +162,18 @@ for $span in 1..4 {
   align-items: center
   color: white
   cursor: pointer
-  transition: 0.3s
+  transition: 0.2s
+
+  -webkit-user-select: none
+  user-select: none
 
   &:hover {
-    opacity: 0.7
+    opacity: 0.8
+  }
+
+  &:active {
+    opacity: 0.5
+    transition: 0s
   }
 }
 
