@@ -21,7 +21,7 @@ export class Store {
   addNumberOperand (value) {
     const last = this.getLastOperand()
     if (last && last.type === 'number') {
-      last.value = parseInt(last.value.toString() + value.toString())
+      last.value = window.parseInt(last.value.toString() + value.toString())
     } else {
       this.addOperand('number', { value })
     }
@@ -40,6 +40,25 @@ export class Store {
 
   clear () {
     this.state.operands = []
+  }
+
+  removeLastOperand () {
+    const last = this.getLastOperand()
+    if (last) {
+      switch (last.type) {
+        case 'number':
+          const head = last.value.toString().slice(0, -1)
+          if (head.length > 0) {
+            last.value = window.parseInt(head)
+          } else {
+            this.state.operands.pop()
+          }
+          break
+
+        default:
+          this.state.operands.pop()
+      }
+    }
   }
 
   getOperatorSymbol (which) {

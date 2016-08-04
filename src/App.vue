@@ -12,11 +12,12 @@
       number.col-1(v-bind:number='7')
       number.col-1(v-bind:number='8')
       number.col-1(v-bind:number='9')
-      special.col-1.rowspan-2(@click="clear") C
+      special.col-1(@click="backspace") &lt;-
     .row
       number.col-1(v-bind:number='4')
       number.col-1(v-bind:number='5')
       number.col-1(v-bind:number='6')
+      special.col-1(@click="clear") C
     .row
       number.col-1(v-bind:number='1')
       number.col-1(v-bind:number='2')
@@ -46,6 +47,10 @@ export default {
   methods: {
     clear () {
       store.clear()
+    },
+
+    backspace () {
+      store.removeLastOperand()
     }
   },
 
