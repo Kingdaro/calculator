@@ -7,7 +7,7 @@ SystemJS.config({
   browserConfig: {
     "baseURL": "/",
     "bundles": {
-      "build.js": [
+      "dist/build.js": [
         "app/app.js",
         "app/App.vue",
         "app/store.js",
