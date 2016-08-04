@@ -9,10 +9,10 @@
       operator.col-1(which='times')
       operator.col-1(which='divide')
     .row
-      special.col-1.rowspan-2(@click.native="clear") C
       number.col-1(v-bind:number='7')
       number.col-1(v-bind:number='8')
       number.col-1(v-bind:number='9')
+      special.col-1.rowspan-2(@click="clear") C
     .row
       number.col-1(v-bind:number='4')
       number.col-1(v-bind:number='5')

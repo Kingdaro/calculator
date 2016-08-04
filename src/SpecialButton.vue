@@ -1,5 +1,5 @@
 <template lang='pug'>
-.button-special
+.button-special(@click="$emit('click')")
   slot
 </template>
 
