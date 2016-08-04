@@ -18,7 +18,7 @@ export class Store {
     this.state.operands = []
   }
 
-  addNumberOperand (value) {
+  typeDigit (value) {
     const last = this.getLastOperand()
     if (last && last.type === 'number') {
       last.value = window.parseInt(last.value.toString() + value.toString())
@@ -27,7 +27,7 @@ export class Store {
     }
   }
 
-  addSymbolOperand (which) {
+  typeOperator (which) {
     const last = this.getLastOperand()
     if (last) {
       if (last.type === 'operator') {
@@ -42,7 +42,7 @@ export class Store {
     this.state.operands = []
   }
 
-  removeLastOperand () {
+  backspace () {
     const last = this.getLastOperand()
     if (last) {
       switch (last.type) {

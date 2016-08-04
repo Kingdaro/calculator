@@ -56,7 +56,7 @@ export default {
     },
 
     backspace () {
-      store.removeLastOperand()
+      store.backspace()
     }
   },
 

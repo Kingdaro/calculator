@@ -1,5 +1,5 @@
 <template lang='pug'>
-.button-operator(@click='addSymbolOperand')
+.button-operator(@click='typeOperator')
   slot
 </template>
 
@@ -12,7 +12,7 @@ export default {
   },
 
   methods: {
-    addSymbolOperand () { store.addSymbolOperand(this.which) }
+    typeOperator () { store.typeOperator(this.which) }
   }
 }
 </script>

@@ -12,7 +12,7 @@ export default {
 
   methods: {
     click () {
-      store.addNumberOperand(this.number)
+      store.typeDigit(this.number)
     }
   }
 }
