@@ -1,17 +1,17 @@
-class Store {
+export class Store {
   constructor () {
     this.state = {
       operands: []
     }
   }
 
+  addOperand (type, params) {
+    this.state.operands.push(Object.assign({ type }, params))
+  }
+
   getLastOperand () {
     const {operands} = this.state
     return operands[operands.length - 1]
-  }
-
-  addOperand (type, params) {
-    this.state.operands.push(Object.assign({ type }, params))
   }
 
   clear () {
